@@ -30,7 +30,7 @@ postconf -e myhostname=$maildomain
 postconf -F '*/*/chroot = n'
 
 ############
-# virtual
+# virtual 
 ############
 postconf -e virtual_alias_domains=${virtual_alias_domains-$maildomain}
 
