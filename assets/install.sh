@@ -30,9 +30,11 @@ postconf -e myhostname=$maildomain
 postconf -F '*/*/chroot = n'
 
 ############
-# virtual 
+# virtual
 ############
 postconf -e virtual_alias_domains=${virtual_alias_domains-$maildomain}
+postconf -e virtual_alias_maps = hash:/etc/postfix/virtual
+postmap /etc/postfix/virtual
 
 ############
 # SASL SUPPORT FOR CLIENTS
