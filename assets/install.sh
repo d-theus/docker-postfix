@@ -32,10 +32,10 @@ postconf -F '*/*/chroot = n'
 ############
 # virtual
 ############
-if [ -e /etc/postfix/virtual]; then
+if [ -e /etc/postfix/virtual ]; then
   echo "setting up virtual" >> /var/log/mail.log
-  chown postfix /etc/postfix/virtual
-  postconf -e virtual_alias_domains=${virtual_alias_domains-$maildomain}
+  chown postfix -R /etc/postfix
+  postconf -e virtual_alias_domains="${virtual_alias_domains-$maildomain}"
   postconf -e virtual_alias_maps=hash:/etc/postfix/virtual
   postmap /etc/postfix/virtual
 fi
