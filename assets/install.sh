@@ -34,7 +34,7 @@ postconf -F '*/*/chroot = n'
 ############
 if [ -e /etc/postfix/virtual ]; then
   chown postfix -R /etc/postfix
-  postconf -e virtual_alias_domains=${virtual_alias_domains-$maildomain}
+  postconf -e virtual_alias_domains="${virtual_alias_domains-$maildomain}"
   postconf -e virtual_alias_maps=hash:/etc/postfix/virtual
   postmap /etc/postfix/virtual
 fi
