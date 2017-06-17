@@ -30,6 +30,11 @@ postconf -e myhostname=$maildomain
 postconf -F '*/*/chroot = n'
 
 ############
+# virtual
+############
+postconf -e virtual_alias_domains=${virtual_alias_domains-$maildomain}
+
+############
 # SASL SUPPORT FOR CLIENTS
 # The following options set parameters needed by Postfix to enable
 # Cyrus-SASL support for authentication of mail clients.
